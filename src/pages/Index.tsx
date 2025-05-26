@@ -1,7 +1,8 @@
 
 
+
 import React, { useState } from 'react';
-import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
+import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
@@ -281,6 +282,7 @@ const prompts = [
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
+  const [upgradedPrompts, setUpgradedPrompts] = useState<Set<number>>(new Set());
   const { toast } = useToast();
 
   // Calculate total count for "全部" category
@@ -292,6 +294,34 @@ const Index = () => {
       title: "已複製到剪貼簿",
       description: "提示詞已複製到您的剪貼簿。",
     });
+  };
+
+  const upgradePrompt = (promptId: number) => {
+    const newUpgradedPrompts = new Set(upgradedPrompts);
+    if (upgradedPrompts.has(promptId)) {
+      newUpgradedPrompts.delete(promptId);
+    } else {
+      newUpgradedPrompts.add(promptId);
+    }
+    setUpgradedPrompts(newUpgradedPrompts);
+    
+    toast({
+      title: upgradedPrompts.has(promptId) ? "已還原為基礎版" : "已升級為進階版",
+      description: upgradedPrompts.has(promptId) ? "提示詞已還原為基礎版本。" : "提示詞已升級為進階版本。",
+    });
+  };
+
+  const getPromptDescription = (prompt: any) => {
+    if (upgradedPrompts.has(prompt.id)) {
+      return `【進階版】${prompt.description} 
+      
+進階功能包括：
+• 更詳細的執行步驟指導
+• 多種情境應用範例
+• 個人化調整建議
+• 效果追蹤與優化方案`;
+    }
+    return prompt.description;
   };
 
   const filteredPrompts = prompts.filter(prompt => {
@@ -387,26 +417,48 @@ const Index = () => {
           {/* Prompts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredPrompts.map((prompt) => (
-              <Card key={prompt.id} className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-teal-200 flex flex-col">
+              <Card key={prompt.id} className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-teal-200 flex flex-col relative">
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
-                    <CardTitle className="text-base font-semibold text-gray-900 leading-tight">
+                    <CardTitle className="text-base font-semibold text-gray-900 leading-tight pr-8">
                       {prompt.title}
                     </CardTitle>
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        upgradePrompt(prompt.id);
+                      }}
+                      className={`absolute top-3 right-3 h-8 w-8 transition-colors ${
+                        upgradedPrompts.has(prompt.id) 
+                          ? 'text-yellow-500 hover:text-yellow-600' 
+                          : 'text-gray-400 hover:text-yellow-500'
+                      }`}
+                    >
+                      <Sparkles className="h-4 w-4" />
+                    </Button>
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0 flex-1 flex flex-col">
-                  <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4 flex-1">
-                    {prompt.description}
+                  <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4 flex-1 whitespace-pre-line">
+                    {getPromptDescription(prompt)}
                   </CardDescription>
                   <div className="mt-auto space-y-3">
-                    <Badge variant="outline" className="text-xs w-fit">
-                      {prompt.category}
-                    </Badge>
+                    <div className="flex items-center justify-between">
+                      <Badge variant="outline" className="text-xs w-fit">
+                        {prompt.category}
+                      </Badge>
+                      {upgradedPrompts.has(prompt.id) && (
+                        <Badge className="text-xs bg-yellow-100 text-yellow-800 border-yellow-200">
+                          進階版
+                        </Badge>
+                      )}
+                    </div>
                     <Button
                       variant="outline"
                       size="sm"
-                      onClick={() => copyPrompt(prompt.description)}
+                      onClick={() => copyPrompt(getPromptDescription(prompt))}
                       className="w-full bg-white border-teal-200 hover:bg-teal-50 hover:border-teal-300 text-teal-700 rounded-lg"
                     >
                       <Copy className="w-4 h-4 mr-2" />
