@@ -497,7 +497,7 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto flex">
         {/* Desktop Sidebar - hidden on mobile */}
-        <aside className="w-64 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto p-6 hidden md:block">
+        <aside className="w-80 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto p-6 hidden md:block">
           <SidebarContent />
         </aside>
 
