@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -486,7 +487,7 @@ const Index = () => {
               alt="LURE Logo" 
               className="h-6 w-auto"
             />
-            <span className="text-sm text-gray-500">ChatGPT 美髮指令大全</span>
+            <span className="text-sm text-gray-500 hidden md:inline">ChatGPT 美髮指令大全</span>
           </div>
           <div className="flex items-center space-x-4">
             <Button size="sm">Get Pro</Button>
