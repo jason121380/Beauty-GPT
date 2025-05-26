@@ -18,15 +18,6 @@ const categories = [
 ];
 
 const prompts = [
-  {
-    id: 1,
-    title: "Add Your Prompt",
-    description: "Share your creative prompts with the community! Submit a pull request to add your prompts to the collection.",
-    author: "Community",
-    date: "2023",
-    isSpecial: true,
-    category: "特殊"
-  },
   // 顧客管理
   {
     id: 2,
@@ -291,7 +282,7 @@ const Index = () => {
   const { toast } = useToast();
 
   // Calculate total count for "全部" category
-  const totalPromptsCount = prompts.length - 1; // Subtract 1 to exclude the "Add Your Prompt" special item
+  const totalPromptsCount = prompts.length;
 
   const copyPrompt = (title: string) => {
     navigator.clipboard.writeText(title);
