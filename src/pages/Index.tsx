@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -287,8 +288,8 @@ const Index = () => {
   const copyPrompt = (title: string) => {
     navigator.clipboard.writeText(title);
     toast({
-      title: "Copied to clipboard",
-      description: "Prompt has been copied to your clipboard.",
+      title: "已複製到剪貼簿",
+      description: "提示詞已複製到您的剪貼簿。",
     });
   };
 
