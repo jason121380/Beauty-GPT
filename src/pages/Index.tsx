@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -314,7 +313,7 @@ const Index = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center space-x-4 pl-8">
+          <div className="flex items-center space-x-4">
             <img 
               src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
               alt="LURE Logo" 
