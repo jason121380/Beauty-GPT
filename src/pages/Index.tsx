@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -6,17 +5,6 @@ import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
-
-const platforms = [
-  { name: 'GitHub Copilot', color: 'bg-gray-900', active: true },
-  { name: 'ChatGPT', color: 'bg-green-600', active: false },
-  { name: 'Grok', color: 'bg-black', active: false },
-  { name: 'Claude', color: 'bg-orange-500', active: false },
-  { name: 'Perplexity', color: 'bg-blue-600', active: false },
-  { name: 'Mistral', color: 'bg-purple-600', active: false },
-  { name: 'Gemini', color: 'bg-blue-500', active: false },
-  { name: 'Meta', color: 'bg-blue-700', active: false }
-];
 
 const categories = [
   { name: '顧客管理', count: 10, icon: Users },
@@ -300,7 +288,6 @@ const prompts = [
 const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
-  const [selectedPlatforms, setSelectedPlatforms] = useState(['GitHub Copilot']);
   const { toast } = useToast();
 
   const copyPrompt = (title: string) => {
@@ -340,35 +327,6 @@ const Index = () => {
           </div>
         </div>
       </header>
-
-      {/* Platform Selector */}
-      <div className="bg-white border-b border-gray-200 px-6 py-3">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-gray-600 mr-4">Choose your AI platform</span>
-            {platforms.map((platform) => (
-              <Badge
-                key={platform.name}
-                variant={selectedPlatforms.includes(platform.name) ? "default" : "outline"}
-                className={`cursor-pointer transition-colors ${
-                  selectedPlatforms.includes(platform.name) 
-                    ? platform.color + ' text-white'
-                    : 'hover:bg-gray-100'
-                }`}
-                onClick={() => {
-                  if (selectedPlatforms.includes(platform.name)) {
-                    setSelectedPlatforms(selectedPlatforms.filter(p => p !== platform.name));
-                  } else {
-                    setSelectedPlatforms([...selectedPlatforms, platform.name]);
-                  }
-                }}
-              >
-                {platform.name}
-              </Badge>
-            ))}
-          </div>
-        </div>
-      </div>
 
       <div className="max-w-7xl mx-auto flex">
         {/* Sidebar */}
