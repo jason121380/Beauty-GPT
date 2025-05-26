@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -290,6 +291,9 @@ const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState('全部');
   const { toast } = useToast();
 
+  // Calculate total count for "全部" category
+  const totalPromptsCount = prompts.length - 1; // Subtract 1 to exclude the "Add Your Prompt" special item
+
   const copyPrompt = (title: string) => {
     navigator.clipboard.writeText(title);
     toast({
@@ -359,6 +363,9 @@ const Index = () => {
                 >
                   <Globe className="w-4 h-4" />
                   <span className="flex-1">全部</span>
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
+                    {totalPromptsCount}
+                  </span>
                 </button>
                 {categories.map((category) => {
                   const Icon = category.icon;
