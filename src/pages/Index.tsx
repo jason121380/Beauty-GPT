@@ -304,11 +304,11 @@ const Index = () => {
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-4 pl-16">
             <img 
               src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
               alt="LURE Logo" 
-              className="h-8 w-auto"
+              className="h-6 w-auto"
             />
             <span className="text-sm text-gray-500">ChatGPT 美髮指令大全</span>
           </div>
@@ -320,7 +320,10 @@ const Index = () => {
 
       <div className="max-w-7xl mx-auto flex">
         {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 min-h-screen p-6">
+        <aside className="w-64 bg-white border-r border-gray-200 min-h-screen p-6 relative">
+          {/* Red line */}
+          <div className="absolute left-0 top-0 w-1 h-full bg-red-500"></div>
+          
           <div className="space-y-6">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
