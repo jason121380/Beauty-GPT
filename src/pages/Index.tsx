@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -308,7 +309,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
               alt="LURE Logo" 
-              className="h-8 w-auto"
+              className="h-6 w-auto"
             />
             <span className="text-sm text-gray-500">ChatGPT 美髮指令大全</span>
           </div>
