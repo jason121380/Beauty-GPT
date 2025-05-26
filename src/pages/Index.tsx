@@ -333,7 +333,7 @@ const Index = () => {
             </div>
 
             <div>
-              <h3 className="font-semibold text-gray-900 mb-3">Categories</h3>
+              <h3 className="font-semibold text-gray-900 mb-3">分類</h3>
               <nav className="space-y-1">
                 <button
                   onClick={() => setSelectedCategory('全部')}
