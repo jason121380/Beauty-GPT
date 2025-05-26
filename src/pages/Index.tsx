@@ -477,7 +477,7 @@ const Index = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-80 p-0">
+              <SheetContent side="left" className="w-80 p-0 [&>button]:hidden">
                 <SidebarContent />
               </SheetContent>
             </Sheet>
