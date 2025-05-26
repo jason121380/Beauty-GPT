@@ -406,20 +406,6 @@ const Index = () => {
                       >
                         <Copy className="w-4 h-4" />
                       </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="p-1 h-auto text-gray-400 hover:text-red-500"
-                      >
-                        <Heart className="w-4 h-4" />
-                      </Button>
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        className="p-1 h-auto text-gray-400 hover:text-gray-600"
-                      >
-                        <BookOpen className="w-4 h-4" />
-                      </Button>
                     </div>
                   </div>
                 </CardHeader>
@@ -427,17 +413,11 @@ const Index = () => {
                   <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4">
                     {prompt.description}
                   </CardDescription>
-                  <div className="flex items-center justify-between text-xs text-gray-500">
-                    <span>{prompt.author}</span>
-                    <span>{prompt.date}</span>
+                  <div className="mt-2">
+                    <Badge variant="outline" className="text-xs">
+                      {prompt.category}
+                    </Badge>
                   </div>
-                  {prompt.category && (
-                    <div className="mt-2">
-                      <Badge variant="outline" className="text-xs">
-                        {prompt.category}
-                      </Badge>
-                    </div>
-                  )}
                 </CardContent>
               </Card>
             ))}
