@@ -387,9 +387,7 @@ const Index = () => {
             {filteredPrompts.map((prompt) => (
               <Card
                 key={prompt.id}
-                className={`cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 ${
-                  prompt.isSpecial ? 'border-2 border-dashed border-teal-300 bg-teal-50' : 'hover:border-teal-200'
-                }`}
+                className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-teal-200"
               >
                 <CardHeader className="pb-3">
                   <div className="flex items-start justify-between">
