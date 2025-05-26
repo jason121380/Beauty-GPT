@@ -311,7 +311,11 @@ const Index = () => {
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
-            <h1 className="text-2xl font-bold text-teal-600">prompts.chat</h1>
+            <img 
+              src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
+              alt="LURE Logo" 
+              className="h-8 w-auto"
+            />
             <span className="text-sm text-gray-500">ChatGPT 美髮指令大全</span>
             <Badge variant="secondary" className="bg-green-100 text-green-800">
               New: Try Vibe Coding Mode!
