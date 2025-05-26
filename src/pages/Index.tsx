@@ -385,41 +385,37 @@ const Index = () => {
           {/* Prompts Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {filteredPrompts.map((prompt) => (
-              <Card
-                key={prompt.id}
-                className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-teal-200"
-              >
-                <CardHeader className="pb-3">
-                  <div className="flex items-start justify-between">
-                    <CardTitle className="text-base font-semibold text-gray-900 leading-tight">
-                      {prompt.title}
-                    </CardTitle>
-                    <div className="flex space-x-1 ml-2">
-                      <Button
-                        variant="ghost"
-                        size="sm"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          copyPrompt(prompt.description);
-                        }}
-                        className="p-1 h-auto text-gray-400 hover:text-gray-600"
-                      >
-                        <Copy className="w-4 h-4" />
-                      </Button>
+              <div key={prompt.id} className="flex flex-col">
+                <Card className="cursor-pointer transition-all duration-200 hover:shadow-lg hover:-translate-y-1 hover:border-teal-200 flex-1">
+                  <CardHeader className="pb-3">
+                    <div className="flex items-start justify-between">
+                      <CardTitle className="text-base font-semibold text-gray-900 leading-tight">
+                        {prompt.title}
+                      </CardTitle>
                     </div>
-                  </div>
-                </CardHeader>
-                <CardContent className="pt-0">
-                  <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4">
-                    {prompt.description}
-                  </CardDescription>
-                  <div className="mt-2">
-                    <Badge variant="outline" className="text-xs">
-                      {prompt.category}
-                    </Badge>
-                  </div>
-                </CardContent>
-              </Card>
+                  </CardHeader>
+                  <CardContent className="pt-0">
+                    <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4">
+                      {prompt.description}
+                    </CardDescription>
+                    <div className="mt-2">
+                      <Badge variant="outline" className="text-xs">
+                        {prompt.category}
+                      </Badge>
+                    </div>
+                  </CardContent>
+                </Card>
+                <div className="flex justify-center mt-4">
+                  <Button
+                    variant="outline"
+                    size="icon"
+                    onClick={() => copyPrompt(prompt.description)}
+                    className="rounded-full w-10 h-10 border-teal-200 hover:bg-teal-50 hover:border-teal-300"
+                  >
+                    <Copy className="w-4 h-4 text-teal-600" />
+                  </Button>
+                </div>
+              </div>
             ))}
           </div>
         </main>
