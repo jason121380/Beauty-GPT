@@ -348,7 +348,7 @@ const Index = () => {
                   onClick={() => setSelectedCategory('全部')}
                   className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
                     selectedCategory === '全部'
-                      ? 'bg-teal-50 text-teal-700 border-r-2 border-teal-600'
+                      ? 'bg-teal-50 text-teal-700'
                       : 'text-gray-700 hover:bg-gray-50'
                   }`}
                 >
@@ -387,18 +387,8 @@ const Index = () => {
 
         {/* Main Content */}
         <main className="flex-1 p-6">
-          <div className="mb-6 flex items-center justify-between">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedCategory}</h2>
-              <div className="flex items-center space-x-4 text-sm text-gray-600">
-                <span>美髮專業指令</span>
-                <span>適用於 ChatGPT、Claude 等 AI 平台</span>
-              </div>
-            </div>
-            <Button className="bg-teal-600 hover:bg-teal-700">
-              <Plus className="w-4 h-4 mr-2" />
-              Add Prompt
-            </Button>
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">{selectedCategory}</h2>
           </div>
 
           {/* Prompts Grid */}
