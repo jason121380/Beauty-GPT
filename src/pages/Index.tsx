@@ -488,9 +488,6 @@ const Index = () => {
             />
             <span className="text-sm text-gray-500 hidden md:inline">ChatGPT 美髮指令大全</span>
           </div>
-          <div className="flex items-center space-x-4">
-            <Button size="sm">Get Pro</Button>
-          </div>
         </div>
       </header>
 
