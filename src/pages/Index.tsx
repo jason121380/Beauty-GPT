@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -534,7 +533,9 @@ const Index = () => {
                   </div>
                 </CardHeader>
                 <CardContent className="pt-0 flex-1 flex flex-col">
-                  <CardDescription className="text-sm text-gray-600 line-clamp-4 mb-4 flex-1 whitespace-pre-line">
+                  <CardDescription className={`text-sm text-gray-600 mb-4 flex-1 whitespace-pre-line overflow-hidden ${
+                    upgradedPrompts.has(prompt.id) ? '' : 'line-clamp-4'
+                  }`}>
                     {getPromptDescription(prompt)}
                   </CardDescription>
                   <div className="mt-auto space-y-3">
