@@ -1,13 +1,15 @@
-
-
-
 import React, { useState } from 'react';
-import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles } from 'lucide-react';
+import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { useToast } from '@/hooks/use-toast';
+import {
+  Sheet,
+  SheetContent,
+  SheetTrigger,
+} from '@/components/ui/sheet';
 
 const categories = [
   { name: '顧客管理', count: 10, icon: Users },
@@ -283,6 +285,7 @@ const Index = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('全部');
   const [upgradedPrompts, setUpgradedPrompts] = useState<Set<number>>(new Set());
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   // Calculate total count for "全部" category
@@ -331,12 +334,87 @@ const Index = () => {
     return matchesSearch && matchesCategory;
   });
 
+  // Mobile sidebar content
+  const SidebarContent = () => (
+    <div className="p-6 space-y-6">
+      <div className="relative">
+        <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+        <Input
+          placeholder="搜尋提示詞..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          className="pl-10"
+        />
+      </div>
+
+      <div>
+        <h3 className="font-semibold text-gray-900 mb-3">分類</h3>
+        <nav className="space-y-1">
+          <button
+            onClick={() => {
+              setSelectedCategory('全部');
+              setMobileMenuOpen(false);
+            }}
+            className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
+              selectedCategory === '全部'
+                ? 'bg-teal-50 text-teal-700'
+                : 'text-gray-700 hover:bg-gray-50'
+            }`}
+          >
+            <Globe className="w-4 h-4" />
+            <span className="flex-1">全部</span>
+            <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
+              {totalPromptsCount}
+            </span>
+          </button>
+          {categories.map((category) => {
+            const Icon = category.icon;
+            return (
+              <button
+                key={category.name}
+                onClick={() => {
+                  setSelectedCategory(category.name);
+                  setMobileMenuOpen(false);
+                }}
+                className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
+                  selectedCategory === category.name
+                    ? 'bg-teal-50 text-teal-700'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                <Icon className="w-4 h-4" />
+                <span className="flex-1">{category.name}</span>
+                {category.count && (
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
+                    {category.count}
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </nav>
+      </div>
+    </div>
+  );
+
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
+            {/* Mobile menu button - only visible on mobile */}
+            <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+              <SheetTrigger asChild>
+                <Button variant="ghost" size="icon" className="md:hidden">
+                  <Menu className="h-5 w-5" />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="left" className="w-80 p-0">
+                <SidebarContent />
+              </SheetContent>
+            </Sheet>
+            
             <img 
               src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
               alt="LURE Logo" 
@@ -351,61 +429,9 @@ const Index = () => {
       </header>
 
       <div className="max-w-7xl mx-auto flex">
-        {/* Sidebar */}
-        <aside className="w-64 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto p-6">
-          <div className="space-y-6">
-            <div className="relative">
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-              <Input
-                placeholder="搜尋提示詞..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10"
-              />
-            </div>
-
-            <div>
-              <h3 className="font-semibold text-gray-900 mb-3">分類</h3>
-              <nav className="space-y-1">
-                <button
-                  onClick={() => setSelectedCategory('全部')}
-                  className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
-                    selectedCategory === '全部'
-                      ? 'bg-teal-50 text-teal-700'
-                      : 'text-gray-700 hover:bg-gray-50'
-                  }`}
-                >
-                  <Globe className="w-4 h-4" />
-                  <span className="flex-1">全部</span>
-                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
-                    {totalPromptsCount}
-                  </span>
-                </button>
-                {categories.map((category) => {
-                  const Icon = category.icon;
-                  return (
-                    <button
-                      key={category.name}
-                      onClick={() => setSelectedCategory(category.name)}
-                      className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
-                        selectedCategory === category.name
-                          ? 'bg-teal-50 text-teal-700'
-                          : 'text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      <Icon className="w-4 h-4" />
-                      <span className="flex-1">{category.name}</span>
-                      {category.count && (
-                        <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">
-                          {category.count}
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
-              </nav>
-            </div>
-          </div>
+        {/* Desktop Sidebar - hidden on mobile */}
+        <aside className="w-64 bg-white border-r border-gray-200 sticky top-0 h-screen overflow-y-auto p-6 hidden md:block">
+          <SidebarContent />
         </aside>
 
         {/* Main Content */}
@@ -476,4 +502,3 @@ const Index = () => {
 };
 
 export default Index;
-
