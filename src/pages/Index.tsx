@@ -357,7 +357,7 @@ const Index = () => {
                       onClick={() => setSelectedCategory(category.name)}
                       className={`w-full flex items-center space-x-3 px-3 py-2 text-sm rounded-lg transition-colors text-left ${
                         selectedCategory === category.name
-                          ? 'bg-teal-50 text-teal-700 border-r-2 border-teal-600'
+                          ? 'bg-teal-50 text-teal-700'
                           : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
