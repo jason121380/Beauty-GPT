@@ -1,0 +1,27 @@
+
+{
+  "name": "ChatGPT 美髮指令大全",
+  "short_name": "美髮指令",
+  "description": "ChatGPT 美髮指令大全 - 專業美髮AI指令集合",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/lovable-uploads/069c7c2f-56f2-4674-b13b-ac7905b352ea.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/lovable-uploads/069c7c2f-56f2-4674-b13b-ac7905b352ea.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "categories": ["beauty", "lifestyle", "productivity"],
+  "lang": "zh-TW"
+}
