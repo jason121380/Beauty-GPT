@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -355,6 +355,19 @@ const Index = () => {
 
   // Calculate total count for "全部" category
   const totalPromptsCount = prompts.length;
+
+  // Filter prompts based on search term and selected category
+  const filteredPrompts = useMemo(() => {
+    return prompts.filter(prompt => {
+      const matchesSearch = searchTerm === '' || 
+        prompt.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        prompt.description.toLowerCase().includes(searchTerm.toLowerCase());
+      
+      const matchesCategory = selectedCategory === '全部' || prompt.category === selectedCategory;
+      
+      return matchesSearch && matchesCategory;
+    });
+  }, [searchTerm, selectedCategory]);
 
   const copyPrompt = (title: string) => {
     navigator.clipboard.writeText(title);
