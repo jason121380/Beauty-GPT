@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -321,17 +320,9 @@ const Index = () => {
               className="h-8 w-auto"
             />
             <span className="text-sm text-gray-500">ChatGPT 美髮指令大全</span>
-            <Badge variant="secondary" className="bg-green-100 text-green-800">
-              New: Try Vibe Coding Mode!
-            </Badge>
           </div>
           <div className="flex items-center space-x-4">
-            <span className="text-sm text-gray-600">vibe-coded with cursor</span>
-            <span className="text-sm text-gray-600">126,815</span>
-            <div className="flex space-x-2">
-              <Button variant="outline" size="sm">Sign in</Button>
-              <Button size="sm">Get Pro</Button>
-            </div>
+            <Button size="sm">Get Pro</Button>
           </div>
         </div>
       </header>
