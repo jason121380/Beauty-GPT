@@ -482,8 +482,8 @@ const Index = () => {
             </Sheet>
             
             <img 
-              src="/lovable-uploads/427a0a8a-de0d-41e7-ac12-979e2bb1adc8.png" 
-              alt="LURE Logo" 
+              src="/lovable-uploads/b78673fd-244c-4ba6-bb71-c22fbfadd339.png" 
+              alt="LURE Prompts Logo" 
               className="h-6 w-auto"
             />
             <span className="text-sm text-gray-500 hidden md:inline">ChatGPT 美髮指令大全</span>
