@@ -485,7 +485,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/b78673fd-244c-4ba6-bb71-c22fbfadd339.png" 
               alt="LURE Prompts Logo" 
-              className="h-10 w-auto"
+              className="h-14 w-auto"
             />
             <span className="text-sm text-gray-500 hidden md:inline">ChatGPT 美髮指令大全</span>
           </div>
