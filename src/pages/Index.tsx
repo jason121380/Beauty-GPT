@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -466,9 +467,9 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-start md:justify-between max-w-7xl mx-auto">
-          <div className="flex items-center space-x-4">
+      <header className="bg-white border-b border-gray-200 px-3 md:px-6 py-4">
+        <div className="flex items-center justify-start md:justify-between w-full md:max-w-7xl md:mx-auto">
+          <div className="flex items-center space-x-2 md:space-x-4">
             {/* Mobile menu button - only visible on mobile */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
