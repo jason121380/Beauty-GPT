@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -484,7 +485,7 @@ const Index = () => {
             <img 
               src="/lovable-uploads/b78673fd-244c-4ba6-bb71-c22fbfadd339.png" 
               alt="LURE Prompts Logo" 
-              className="h-6 w-auto"
+              className="h-10 w-auto"
             />
             <span className="text-sm text-gray-500 hidden md:inline">ChatGPT 美髮指令大全</span>
           </div>
