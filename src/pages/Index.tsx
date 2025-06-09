@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { Search, Plus, Copy, Heart, BookOpen, Terminal, Code, Briefcase, Palette, Shield, Database, Brain, Zap, Globe, Users, MessageSquare, Megaphone, UserCheck, Award, GraduationCap, Calendar, TrendingUp, Sparkles, Menu } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -328,7 +327,7 @@ const proPrompts = {
   
   "沙龍品牌形象介紹文案": "角色：你是美髮沙龍品牌形象顧問\n任務：撰寫一則沙龍品牌形象介紹文案\n內容：\n- 沙龍的創立理念與故事\n- 品牌核心價值與美學理念\n- 獲取的服務特色與優勢\n- 設計師團隊特質\n- 典型客戶體驗描述\n- 品牌願景與承諾\n風格：專業、時尚、溫暖、有質感\n格式：250-300 字，結構完整，能吸引目標客群的注意",
   
-  "招聘文案": "角色：你是美髮產業人才招募專家\n任務：撰寫一則招募美髮設計師的文案\n內容：\n- 吸引人的開場與沙龍簡介\n- 職位描述與主要職責\n- 理想候選人特質與技能要求\n- 工作環境與團隊文化介紹\n- 培訓制度與職涯發展路徑\n- 薪資福利與獎勵機制\n- 應徵方式與聯絡資訊\n風格：熱情、鼓舞人心、展現團隊文化與發展潛力\n格式：300-350 字，結構清晰，重點突出",
+  "招聘文案": "角色：你是美髮產業人才招募專家\n任務：撰寫一則招募美髮設計師的文案\n內容：\n- 吸引人的開場與沙龍簡介\n- 职位描述與主要職責\n- 理想候選人特質與技能要求\n- 工作環境與團隊文化介紹\n- 培訓制度與職涯發展路徑\n- 薪資福利與獎勵機制\n- 應徵方式與聯絡資訊\n風格：熱情、鼓舞人心、展現團隊文化與發展潛力\n格式：300-350 字，結構清晰，重點突出",
   
   "美髮專業知識教育文案": "角色：你是美髮護理教育專家\n任務：撰寫一篇教導客戶正確護髮的短篇貼文\n內容：\n- 常見髮質損傷的原因（如熱工具、染燙、環境因素等）\n- 3-4 個日常正確護髮的實用技巧\n- 不同髮質的護理重點差異\n- 專業產品使用建議\n- 錯誤護髮觀念糾正\n風格：教育性、實用、淺顯易懂\n格式：250-300 字，可用小標題或數字列點分隔不同要點",
   
@@ -468,7 +467,7 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center justify-start md:justify-between max-w-7xl mx-auto">
           <div className="flex items-center space-x-4">
             {/* Mobile menu button - only visible on mobile */}
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
